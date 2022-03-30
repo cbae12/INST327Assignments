@@ -1,0 +1,61 @@
+USE my_guitar_shop;
+
+/*Answer 1*/
+-- Using aggregate function to locate accordingly
+SELECT product_name AS "Product Name" , category_name AS "Category Name",
+COUNT(product_id) AS "Number Purchased" , 
+CONCAT(MAX(discount_percent), '%') AS "Maximum Discount",     -- To find MAXIMUM sale percent for each product
+CONCAT('$', SUM(list_price * quantity - discount_amount * quantity)) AS "Discounted Order Total"		-- To find total of the product with discount
+FROM products
+	JOIN categories
+		USING (category_id)
+	JOIN order_items
+		USING (product_id)
+GROUP BY product_name WITH ROLLUP;				-- ROLLUP to locate the total amount
+
+/*Answer 2*/
+-- Locating by last name
+SELECT CONCAT(first_name,' ', last_name) AS "Customer Name",
+email_address AS "Customer Email", CONCAT(line1, ' ', line2) AS "Customer Address", 
+CONCAT(city, ', ', state, ' ',zip_code) AS "Customer City/State/Zip"
+FROM customers
+	JOIN addresses
+		USING(customer_id)
+WHERE last_name IN		-- WHERE statement to apply for only last names listed
+	(SELECT last_name
+		FROM customers
+			WHERE last_name = 'Brown' OR last_name = 'Goldstein' OR last_name = 'Sherwood'
+			OR last_name = 'Valentino' OR last_name = 'Wilson' OR last_name = 'Zimmer'
+	)
+GROUP BY last_name
+ORDER BY last_name;
+
+/*Answer 3*/
+-- Using CTE to find the correct values
+WITH valid_card_cte AS (		-- CTE to make valid_card_cte. Uses UNION to limit the search to only certain categories
+	SELECT CONCAT(first_name, ' ', last_name) AS "customer_name",
+	order_id, card_number, card_type, card_expires
+	FROM orders
+		JOIN customers
+			USING (customer_id)
+	WHERE card_type NOT IN ('American Express', 'Discover')
+	UNION
+		SELECT CONCAT(first_name, ' ', last_name) AS "customer_name",
+		order_id, card_number, 'Invalid Card Type' AS card_type, card_expires
+		FROM orders
+			JOIN customers
+				USING (customer_id)
+		WHERE card_type IN ('American Express', 'Discover')
+),
+product_info AS (		-- CTE for another product_info that would further simplify prior CTE
+	SELECT order_id, product_name, item_price
+		FROM order_items
+			JOIN products
+				USING (product_id)
+)
+SELECT customer_name, order_id, product_name, CONCAT('$', item_price) AS item_price,
+card_number, card_type, card_expires
+	FROM valid_card_cte
+		JOIN product_info
+			USING (order_id)
+ORDER BY customer_name;

@@ -1,0 +1,19 @@
+album_id,artist_id,release_id,album_name,number_of_songs,average_song_length,album_link,album_versions
+1,1,1,Year Of The Cat,9,4.183333333,https://www.discogs.com/Al-Stewart-Year-Of-The-Cat/master/90235,148
+2,2,2,Do They Know It's Christmas?,3,4.083333333,"https://www.discogs.com/Band-Aid-Do-They-Know-Its-Christmas/master/57277	Phonogram",97
+3,3,3,Guilty,9,4.633333333,https://www.discogs.com/Barbra-Streisand-Guilty/master/74227,148
+4,4,4,Spirits Having Flown,10,4.416666667,https://www.discogs.com/Bee-Gees-Spirits-Having-Flown/master/23833,198
+5,5,5,Rainbow Rising,6,5.5,https://www.discogs.com/Blackmores-Rainbow-Rainbow-Rising/master/40614,208
+6,6,6,"Blood, Sweat And Tears",10,4.8,https://www.discogs.com/Blood-Sweat-And-Tears-Blood-Sweat-And-Tears/master/35401,129
+7,7,7,"Bon Iver, Bon Iver",10,3.9,https://www.discogs.com/Bon-Iver-Bon-Iver-Bon-Iver/master/345153,16
+8,8,8,Diamond Dogs,11,3.616666667,https://www.discogs.com/Bowie-Diamond-Dogs/master/20141,218
+9,8,9,Pinups,12,2.833333333,https://www.discogs.com/Bowie-Pinups/master/22208,214
+10,9,10,The Best Of Bread,15,2.75,https://www.discogs.com/Bread-The-Best-Of-Bread/master/85508,150
+11,10,11,Reckless,10,3.7,https://www.discogs.com/Bryan-Adams-Reckless/release/1451593,213
+12,11,12,"Somethin' Else	",5,6.916666667,https://www.discogs.com/Cannonball-Adderley-Somethin-Else/master/118117,169
+13,12,13,Tapestry,12,3.733333333,https://www.discogs.com/Carole-King-Tapestry/master/104166,336
+14,13,14,C'est Chic,8,5.233333333,https://www.discogs.com/Chic-Cest-Chic/master/53087,86
+15,14,15,Random Access Memories,13,5.816666667,https://www.discogs.com/Daft-Punk-Random-Access-Memories/master/556257,41
+16,14,16,Discovery,14,4.233333333,https://www.discogs.com/Daft-Punk-Discovery/master/26647,83
+17,14,17,Homework,16,4.716666667,https://www.discogs.com/Daft-Punk-Homework/master/26629,66
+18,15,18,Elvis' Christmas Album,10,2.316666667,"	https://www.discogs.com/Elvis-Presley-Elvis-Christmas-Album/master/107538",104
